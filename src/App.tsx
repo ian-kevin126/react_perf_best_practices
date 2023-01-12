@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { NavLink, useRoutes } from "react-router-dom";
+import routes from "@/router";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="list-group">
+        {/* 设置路由链接 */}
+        <NavLink className="list-group-item" to="/about">
+          About
+        </NavLink>
+        <NavLink className="list-group-item" to="/home">
+          Home
+        </NavLink>
+      </div>
+      <div className="panel-body">
+        {/* 注册路由 */}
+        {/* 调用 useRoutes() hooks，嵌入路由映射表 */}
+        {useRoutes(routes)}
+      </div>
     </div>
   );
 }
-
-export default App;
