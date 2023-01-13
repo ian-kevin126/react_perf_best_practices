@@ -44,3 +44,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+- [React18 (五) RTK - Brian_Huang - 博客园](https://www.cnblogs.com/hlkawa/p/16712927.html)
+- [在项目中用ts封装axios，一次封装整个团队受益](https://juejin.cn/post/7071518211392405541#heading-14)
+- [React TypeScript 知识速查表](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/class_components/)
