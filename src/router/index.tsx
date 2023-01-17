@@ -1,7 +1,16 @@
 import { ReactElement, lazy } from "react";
 import { Navigate, RouteObject } from "react-router-dom";
-import { LaptopOutlined, NotificationOutlined } from "@ant-design/icons";
+import {
+  LaptopOutlined,
+  CrownOutlined,
+  CompressOutlined,
+  RadarChartOutlined,
+} from "@ant-design/icons";
 import AuthRoute from "./AuthRoute.tsx";
+import PerfRoutes from "./routes/PerfRoutes";
+import BasicsRoutes from "./routes/BasicsRoutes";
+import HooksRoutes from "./routes/Hooks";
+import StateManagementRoutes from "./routes/StateManagement";
 
 /**
  * export interface CustomRouteObject extends RouteObject {}
@@ -32,68 +41,55 @@ export type CustomRouteObject = Omit<RouteObject, "children"> & {
   children?: Array<CustomRouteObject>;
 };
 
-const Message = lazy(() => import("@/pages/Home/Message")),
-  FuncMemo = lazy(() => import("@/pages/FuncMemo")),
-  ClassMemo = lazy(() => import("@/pages/ClassMemo")),
-  NotFound = lazy(() => import("@/pages/Error")),
-  AppLayout = lazy(() => import("@/layout")),
-  Detail = lazy(() => import("@/pages/Home/Message/Detail"));
+const NotFound = lazy(() => import("@/pages/Error"));
+const AppLayout = lazy(() => import("@/layout"));
 
 // 路由映射表
 const routes: Array<CustomRouteObject> = [
   {
-    path: "/login",
-    element: <AuthRoute element={<div>Login</div>} valid={true} />,
-    title: "登录",
+    path: "/",
+    title: "首页",
     isShow: false,
-    icon: <NotificationOutlined />,
+    element: (
+      <AuthRoute element={<Navigate to="/perf/func_memo" />} valid={true} />
+    ),
   },
   {
-    path: "/",
+    path: "basics",
+    element: <AuthRoute element={<AppLayout />} valid={true} />,
+    title: "React基础",
+    isShow: true,
+    icon: <LaptopOutlined />,
+    children: [...BasicsRoutes],
+  },
+  {
+    path: "/perf",
     element: <AuthRoute element={<AppLayout />} valid={true} />,
     title: "性能优化",
     isShow: true,
-    icon: <LaptopOutlined />,
-    children: [
-      {
-        path: "func_memo",
-        title: "Func(Memo)",
-        isShow: true,
-        element: <AuthRoute element={<FuncMemo />} valid={true} />,
-      },
-      {
-        path: "class_memo",
-        title: "Class(Memo)",
-        isShow: true,
-        element: <AuthRoute element={<ClassMemo />} valid={true} />,
-      },
-      {
-        path: "message",
-        isShow: true,
-        element: <AuthRoute element={<Message />} valid={true} />,
-        title: "消息",
-        children: [
-          // 声明接收参数
-          {
-            path: "detail/:id/:title/:content",
-            title: "详情",
-            isShow: false,
-            element: <AuthRoute element={<Detail />} valid={true} />,
-          },
-        ],
-      },
-      {
-        path: "home",
-        title: "其他",
-        isShow: true,
-        element: <AuthRoute element={<Navigate to="/news" />} valid={true} />,
-      },
-      {
-        path: "*",
-        isShow: false,
-        element: <AuthRoute element={<NotFound />} valid={false} />,
-      },
-    ],
+    icon: <CrownOutlined />,
+    children: [...PerfRoutes],
+  },
+  {
+    path: "/hooks",
+    element: <AuthRoute element={<AppLayout />} valid={true} />,
+    title: "Hooks",
+    isShow: true,
+    icon: <CompressOutlined />,
+    children: [...HooksRoutes],
+  },
+  {
+    path: "/state_management",
+    element: <AuthRoute element={<AppLayout />} valid={true} />,
+    title: "状态管理",
+    isShow: true,
+    icon: <RadarChartOutlined />,
+    children: [...StateManagementRoutes],
+  },
+  {
+    path: "*",
+    isShow: false,
+    element: <AuthRoute element={<NotFound />} valid={false} />,
   },
 ];
 

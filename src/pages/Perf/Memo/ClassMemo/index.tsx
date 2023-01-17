@@ -49,8 +49,8 @@ export default class ClassMemo extends Component<any, IState> {
         ...this.state.userList,
         {
           name: `ian${this.state.userList.length + 1}`,
-          age: 44,
-          address: "yanjing",
+          age: this.state.userList.length * 10,
+          address: `beijing - ${this.state.userList.length + 1}`,
         },
       ],
     });

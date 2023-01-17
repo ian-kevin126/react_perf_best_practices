@@ -1,13 +1,6 @@
 import { Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
-
-export type MenuTableProps = {
-  ID?: number;
-  CreatedAt?: Date;
-  UpdatedAt?: Date;
-  path?: string;
-  name?: string;
-};
+import { MenuTableProps } from "./MemoMenuTable";
 
 interface IProps {
   menuList: Array<MenuTableProps>;

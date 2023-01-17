@@ -2,8 +2,8 @@ import { getMenuList } from "@/api";
 import { memo, useEffect, useMemo, useState } from "react";
 import { Button } from "antd";
 import { MemoChild, NoMemoChild } from "./components/MemoChild";
-import MenuTable, { MenuTableProps } from "./components/MenuTable";
-import MemoMenuTable from "./components/MemoMenuTable";
+import MenuTable from "./components/MenuTable";
+import MemoMenuTable, { MenuTableProps } from "./components/MemoMenuTable";
 import CompMemoChild from "./components/CompMemoChild";
 import { UserInfo } from "@/types";
 

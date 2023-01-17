@@ -1,0 +1,15 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+aside {
+  padding: 4px 8px;
+  min-width: 50vw;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: lightgrey;
+}
