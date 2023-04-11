@@ -5,12 +5,14 @@ import {
   CrownOutlined,
   CompressOutlined,
   RadarChartOutlined,
+  AppstoreAddOutlined,
 } from "@ant-design/icons";
 import AuthRoute from "./AuthRoute.tsx";
 import PerfRoutes from "./routes/PerfRoutes";
 import BasicsRoutes from "./routes/BasicsRoutes";
 import HooksRoutes from "./routes/Hooks";
 import StateManagementRoutes from "./routes/StateManagement";
+import DesignPatterns from "./routes/DesignPatterns";
 
 /**
  * export interface CustomRouteObject extends RouteObject {}
@@ -85,6 +87,14 @@ const routes: Array<CustomRouteObject> = [
     isShow: true,
     icon: <RadarChartOutlined />,
     children: [...StateManagementRoutes],
+  },
+  {
+    path: "/design_patterns",
+    element: <AuthRoute element={<AppLayout />} valid={true} />,
+    title: "设计模式",
+    isShow: true,
+    icon: <AppstoreAddOutlined />,
+    children: [...DesignPatterns],
   },
   {
     path: "*",

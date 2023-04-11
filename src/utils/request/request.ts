@@ -34,16 +34,16 @@ class Request {
     this.interceptorsObj = config.interceptors;
 
     // 拦截器执行顺序 接口请求 -> 实例请求 -> 全局请求 -> 实例响应 -> 全局响应 -> 接口响应
-    this.instance.interceptors.request.use(
-      (res: AxiosRequestConfig) => res,
-      (err: any) => err
-    );
+    // this.instance.interceptors.request.use(
+    //   (res: AxiosRequestConfig) => res,
+    //   (err: any) => err
+    // );
 
-    // 使用实例拦截器
-    this.instance.interceptors.request.use(
-      this.interceptorsObj?.requestInterceptors,
-      this.interceptorsObj?.requestInterceptorsCatch
-    );
+    // // 使用实例拦截器
+    // this.instance.interceptors.request.use(
+    //   this.interceptorsObj?.requestInterceptors,
+    //   this.interceptorsObj?.requestInterceptorsCatch
+    // );
     this.instance.interceptors.response.use(
       this.interceptorsObj?.responseInterceptors,
       this.interceptorsObj?.responseInterceptorsCatch
