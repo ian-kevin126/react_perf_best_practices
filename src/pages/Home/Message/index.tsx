@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Message() {
   const [message] = useState([
@@ -24,7 +24,6 @@ export default function Message() {
       <hr />
       {/* 2. 在路由表中定义接收路由参数 path: 'detail/:id/:title/:content' */}
       {/* 3. 路由占位符 */}
-      <Outlet />
     </div>
   );
 }

@@ -1,0 +1,35 @@
+.layout-page {
+  height: 100vh;
+
+  .header {
+    height: 60px;
+    background: #001529;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+
+    .left {
+      text-align: center;
+
+      .logo {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .content {
+    padding: 20px;
+    margin: 0;
+    min-height: 280px;
+    overflow-y: scroll;
+  }
+}
